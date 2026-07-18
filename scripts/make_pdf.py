@@ -7,14 +7,18 @@ Microsoft Edge headless printing. Run from the repo root:
 
 Outputs paper/Limbus_Retention_Paper_JA.pdf and paper/Limbus_Retention_Paper_EN.pdf.
 """
-import subprocess, sys
+import os, subprocess, sys, tempfile, time
 from pathlib import Path
 
 import markdown
 
 ROOT = Path(__file__).resolve().parent.parent
 PAPER = ROOT / 'paper'
+CHROME = r'C:\Program Files\Google\Chrome\Application\chrome.exe'
 EDGE = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
+# Prefer Chrome: on this machine Edge 150 headless intermittently exits 0
+# without printing (see repo history); Chrome prints reliably.
+BROWSER = CHROME if Path(CHROME).exists() else EDGE
 
 CSS = """
 @page { size: A4; margin: 22mm 20mm; }
@@ -55,9 +59,24 @@ def build(md_name: str, pdf_name: str, fonts: str, lang: str):
     html_path = PAPER / (Path(pdf_name).stem + '.html')
     html_path.write_text(html, encoding='utf-8')
     pdf_path = PAPER / pdf_name
-    cmd = [EDGE, '--headless=new', '--disable-gpu', '--no-pdf-header-footer',
-           f'--print-to-pdf={pdf_path}', html_path.resolve().as_uri()]
-    subprocess.run(cmd, check=True, timeout=120)
+    # Isolated profile + --no-first-run: without these, a resident Edge/WebView2
+    # process can take over the launch and silently skip printing (exit code 0,
+    # no output file).
+    profile = Path(tempfile.gettempdir()) / 'make_pdf_edge_profile'
+    tmp_pdf = pdf_path.with_name('_build_' + pdf_path.name)
+    tmp_pdf.unlink(missing_ok=True)
+    cmd = [BROWSER, f'--user-data-dir={profile}', '--no-first-run', '--no-default-browser-check',
+           '--headless=new', '--disable-gpu', '--no-pdf-header-footer',
+           f'--print-to-pdf={tmp_pdf}', html_path.resolve().as_uri()]
+    # Edge's first headless launch sometimes exits 0 without printing; retry.
+    for attempt in range(4):
+        subprocess.run(cmd, check=True, timeout=120)
+        if tmp_pdf.exists():
+            break
+        time.sleep(2)
+    else:
+        raise RuntimeError(f'browser never wrote {tmp_pdf} after retries')
+    os.replace(tmp_pdf, pdf_path)
     print(f'wrote {pdf_path}')
 
 
