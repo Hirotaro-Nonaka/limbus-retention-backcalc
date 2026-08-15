@@ -3,11 +3,13 @@
 Reproduction materials for the preprint:
 
 > Nonaka, H. (2026). *How Much Retention Can Be Estimated from Public CCU and a Single Official Anchor? Back-Calculation on Limbus Company and a Multi-Title Generalization Test.*
-> - Japanese version (Jxiv): DOI to be added
+> - Japanese version (Jxiv): https://doi.org/10.51094/jxiv.5554
 > - English version (arXiv): ID to be added
 > - Author ORCID: [0009-0009-6148-9974](https://orcid.org/0009-0009-6148-9974)
 
 日本語版・英語版のプレプリント本文は `paper/` に同梱しています(公開サーバ上の版が正式版です)。
+
+> **This repository hosts more than one preprint in the same program.** The root (`paper/`, `scripts/`, `outcome/`) is the first preprint (v1, above). The [`v2/`](v2/README.md) subtree holds the reproduction materials for the second preprint — a single-title deep dive that reuses the v1 model. See [`v2/README.md`](v2/README.md).
 
 ## What this repository contains
 
@@ -17,6 +19,7 @@ Reproduction materials for the preprint:
 | `scripts/` | All analysis code (see below) |
 | `outcome/` | **Derived results** — fitted parameters, sensitivity sweeps, bound-relaxation diagnostics, bootstrap samples, event-inflow estimates, and the 6 paper figures. These are our own model outputs and are sufficient to verify every number in the paper without re-running anything |
 | `data/steamdb/` | **Empty by design** — see "Raw data" below |
+| [`v2/`](v2/README.md) | **Second preprint** — reproduction materials for the single-title deep dive on Limbus's repeated DAU/MAU disclosures (β identification, anchor marginal value, non-identifiability theory). Reuses the v1 model in `scripts/`; see [`v2/README.md`](v2/README.md) |
 
 ### Scripts
 
