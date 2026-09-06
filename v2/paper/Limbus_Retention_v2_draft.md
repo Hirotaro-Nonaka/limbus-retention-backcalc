@@ -1,6 +1,6 @@
 # 追加開示1点は外部者の推定に何をもたらすか——Limbus Companyの反復DAU/MAU開示によるβの経験的識別とテール非識別性の検証
 
-**著者**: Hirotaro Nonaka(Riga Technical University)— ORCID: 0009-0009-6148-9974
+**著者**: Hirotaro Nonaka(Riga Technical University)— ORCID: 0009-0009-6148-9974 — Email: Hirotaro.Nonaka@edu.rtu.lv
 
 **キーワード**: ライブサービスゲーム、外部指標からのリテンション推定、DAU・MAU反復開示、プレイ時間ブーストβの識別、テール非識別性、境界緩和診断、感度分析
 
@@ -29,6 +29,10 @@
 ### 1.3 本稿の内容
 
 本稿は次の内容を報告する。第一に、公式DAU/MAUチャートを時系列全体としてデジタイズする手順を、数値抽出の前に凍結し、二重抽出による読み取り誤差の下限を付し、抽出・監査・条件付き採用の各段を分離した(§2.1、§2.2)。第二に、公式DAU曲線との突き合わせにより、単一アンカー較正モデルがアンカーから時間的に遠い過去ほど系統的に過小評価すること、その乖離が定数プレイ時間の交絡として読めることを示した(§3.1)。第三に、公式DAUとCCUの比のイベント窓応答からβを回帰し、95%信頼区間が0を明確に除外する形でβを正に識別した(§3.2)。第四に、末端アンカーを時系列順に1→5点と増やした再フィット系列を構成し、D180がアンカーを増やしても単一の値に収束せず境界依存レジームの間で振れること——長期テールがこの解像度の開示では識別されないこと——を実験的に示した(§3.3)。第五に、この非識別が観測系列の構造に内在することを、stock/base共線性の閉形式として導出した(§4)。全工程は事前凍結・変更ログ運用・実行と監査の分離のもとで進めた(§2.2)。以下では、これらの結果を統合し、開示の情報価値が量ではなく種類に依存するという観点から考察する(§5)。
+
+### 1.4 関連研究における位置づけ
+
+本稿は三つの系譜の交点に位置する。第一に、**顧客ベース分析におけるリテンション予測**である。sBGモデル(Fader & Hardie 2007)やその継続時間依存拡張(Fader et al. 2018)は、コホートの生存表から長期保持率を外挿する枠組みを与えるが、いずれも個票または単一コホートの生存系列を入力とする。本稿が扱うのは、そうした個票を持たない外部者が、集計されたCCU系列と少数の水準アンカーのみからテール保持率(D180)に接近できるか、という逆問題であり、入力の情報量がこれらの先行研究より本質的に乏しい設定にあたる。第二に、**集計カウント系列からの潜在量の逆算**である。疫学のback-calculation(Brookmeyer & Gail 1988)と同型の畳み込み分解を用いる点でv1を継承するが、本稿の主眼は推定値そのものではなく、開示1点あたりの限界情報価値と、その限界を規定する識別構造にある。第三に、**部分識別の計量経済学**である。本稿の中心的結果——長期テールが単一の値に定まらず識別集合(帯)にとどまる——は、点識別を前提とせず観測と整合な解の集合を特徴づける部分識別の枠組み(Manski 2003; Tamer 2010)に属する。識別集合の推定・信頼領域(Chernozhukov et al. 2007)や感度分析における非識別境界(Masten & Poirier 2020)と同様に、本稿はstock/base共線性の閉形式によって識別集合が縮退しない構造的理由を与える。応用の文脈としては、ゲームのプレイヤー・チャーン分析(Fernández del Río et al. 2021)が個票テレメトリを前提とするのに対し、本稿は公開情報のみからの外部推定という制約下でその一部に接近する点で相補的である。方法面では、公式チャート画像からの数値抽出に汎用ツール(WebPlotDigitizer, Rohatgi)ではなく画素較正に基づく独自プロトコルを実装し、抽出前の事前凍結と変更ログ運用(事前登録の精神に沿う、Nosek et al. 2018)によって、事後的な手法選択(HARKing)とデータ制約による強制とを区別可能にした。v1に対する本稿の独自性は、単一タイトルにおける**開示の反復**を軸に据え、アンカーの有無ではなくアンカーの量を連続的に変化させて開示の限界情報価値を測る点にある。方法論・多タイトル一般化の全体像はv1を参照されたい。
 
 ---
 
@@ -257,6 +261,22 @@ D180点推定はステージ1→3で低下(4.86%→4.23%→3.67%)した後、4�
 
 ---
 
+## 参考文献
+
+- Brookmeyer, R., & Gail, M. H. (1988). A method for obtaining short-term projections and lower bounds on the size of the AIDS epidemic. *Journal of the American Statistical Association*, 83(402), 301–308.
+- Chernozhukov, V., Hong, H., & Tamer, E. (2007). Estimation and confidence regions for parameter sets in econometric models. *Econometrica*, 75(5), 1243–1284. doi:10.1111/j.1468-0262.2007.00794.x
+- Fader, P. S., & Hardie, B. G. S. (2007). How to project customer retention. *Journal of Interactive Marketing*, 21(1), 76–90.
+- Fader, P. S., Hardie, B. G. S., Liu, Y., Davin, J., & Steenburgh, T. (2018). "How to project customer retention" revisited: The role of duration dependence. *Journal of Interactive Marketing*, 43, 1–16. doi:10.1016/j.intmar.2018.01.002
+- Fernández del Río, A., Guitart, A., & Periáñez, Á. (2021). A time series approach to player churn and conversion in videogames. *Intelligent Data Analysis*, 25(1), 177–203. arXiv:2003.10287.
+- Manski, C. F. (2003). *Partial Identification of Probability Distributions*. Springer Series in Statistics. New York: Springer.
+- Masten, M. A., & Poirier, A. (2020). Inference on breakdown frontiers. *Quantitative Economics*, 11(1), 41–111. doi:10.3982/QE1288
+- 野中宏太郎 (2026). 公開CCUと1点の公式アンカーから、ライブサービスゲームのリテンションはどこまで推定できるか — Limbus Companyにおけるback-calculationと多タイトル一般化検証. Jxiv(プレプリント). doi:10.51094/jxiv.5554.
+- Nosek, B. A., Ebersole, C. R., DeHaven, A. C., & Mellor, D. T. (2018). The preregistration revolution. *Proceedings of the National Academy of Sciences*, 115(11), 2600–2606. doi:10.1073/pnas.1708274114
+- Rohatgi, A. WebPlotDigitizer [Computer software]. https://automeris.io/WebPlotDigitizer (2026年閲覧).
+- Tamer, E. (2010). Partial identification in econometrics. *Annual Review of Economics*, 2, 167–195. doi:10.1146/annurev.economics.050708.143401
+
+---
+
 ## AI使用の開示
 
 本研究の着想・設計・判断は著者による。数値計算(モデル推定等)および草稿の作成補助に大規模言語モデルを用い、複数モデルによる交差検証を行った。著者が全内容に責任を負う。
@@ -350,7 +370,7 @@ D180点推定はステージ1→3で低下(4.86%→4.23%→3.67%)した後、4�
 | r(t)定義・g(t)凍結流用・切片つき回帰・第1区間除外・n=387 | `v2/task_b/task_b_summary.md` | §0 |
 | v1のβ=0.3上限仮定・D180バンド[3.0%, 6.6%] | `v2/task_b/task_b_summary.md` | §5 |
 | 解像度中央値1.0日/点・イベント31件すべて窓内2点以上 | `v2/task_b/task_b_summary.md` | §2 |
-| β=0.443 [0.327,0.555]・β=0.541 [0.391,0.682](主報告) | `v2/task_b/task_b_usage_conditions.md` | 公表値表 |
+| β=0.443 [0.327,0.555]・β=0.541 [0.391,0.682] (主報告) | `v2/task_b/task_b_usage_conditions.md` | 公表値表 |
 | lag1自己相関0.71・イベント窓ブロックK=28・固定14日K=41・4通り0除外 | `v2/task_b/task_b_summary.md` | §2.5 |
 | HAC L=14〜60でse横ばい・CI≈[0.33,0.55]・iid CI非公表 | `v2/task_b/task_b_usage_conditions.md` | 公表値・注記 |
 | 読み取り誤差8.20%の全点独立付加(保守的選択) | `v2/task_b/task_b_summary.md` | §4 |
