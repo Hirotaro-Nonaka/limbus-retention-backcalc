@@ -121,9 +121,9 @@ v1はβ=0.3を「妥当な上限」と仮定してD180≤6.6%とバンドを設�
 
 ## 成果物
 
-- `C:\Users\rhiro\macデータ保存\Riga\Limbus-Paper\v2\task_b\run_task_b.py` — 再現可能スクリプト
-- `C:\Users\rhiro\macデータ保存\Riga\Limbus-Paper\v2\task_b\r_series.csv` — date, extraction_run, official_dau, ccu, g, r_h2.2, r_h2.128, q, event_flag, interval_id(STEAM run1+run2、753行)
-- `C:\Users\rhiro\macデータ保存\Riga\Limbus-Paper\v2\task_b\r_trend_by_interval.csv` — 区間別記述統計
-- `C:\Users\rhiro\macデータ保存\Riga\Limbus-Paper\v2\task_b\event_window_coverage.csv` — イベント別デジタイズ点カバレッジ(識別可能性の根拠)
-- `C:\Users\rhiro\macデータ保存\Riga\Limbus-Paper\v2\task_b\r_vs_g.png` — r(t) vs g(t) 散布図(回帰直線・区間別色分け)
-- `C:\Users\rhiro\macデータ保存\Riga\Limbus-Paper\v2\task_b\task_b_summary_raw.json` — 生の数値サマリ(JSON)
+- `C:\Users\rhiro\MacData\Riga\Limbus-Paper\v2\task_b\run_task_b.py` — 再現可能スクリプト
+- `C:\Users\rhiro\MacData\Riga\Limbus-Paper\v2\task_b\r_series.csv` — date, extraction_run, official_dau, ccu, g, r_h2.2, r_h2.128, q, event_flag, interval_id(STEAM run1+run2、753行)
+- `C:\Users\rhiro\MacData\Riga\Limbus-Paper\v2\task_b\r_trend_by_interval.csv` — 区間別記述統計
+- `C:\Users\rhiro\MacData\Riga\Limbus-Paper\v2\task_b\event_window_coverage.csv` — イベント別デジタイズ点カバレッジ(識別可能性の根拠)
+- `C:\Users\rhiro\MacData\Riga\Limbus-Paper\v2\task_b\r_vs_g.png` — r(t) vs g(t) 散布図(回帰直線・区間別色分け)
+- `C:\Users\rhiro\MacData\Riga\Limbus-Paper\v2\task_b\task_b_summary_raw.json` — 生の数値サマリ(JSON)

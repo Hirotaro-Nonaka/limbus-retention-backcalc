@@ -95,10 +95,10 @@ STEAM読み取り誤差(run間RMSE、下限扱い、近年偏重値): **8.20%**
 
 ## 成果物
 
-- `C:\Users\rhiro\macデータ保存\Riga\Limbus-Paper\v2\task_a\run_task_a.py` — 再現可能スクリプト
-- `C:\Users\rhiro\macデータ保存\Riga\Limbus-Paper\v2\task_a\trajectory_comparison.csv` — date, platform, extraction_run, official_dau, model_dau, interval_id(STEAM run1/run2・TOTAL run1、計1241行)
-- `C:\Users\rhiro\macデータ保存\Riga\Limbus-Paper\v2\task_a\model_dau_full_trajectory.csv` — モデルDAU全期間日次軌跡(1222日、2023-02-27〜2026-07-02)
-- `C:\Users\rhiro\macデータ保存\Riga\Limbus-Paper\v2\task_a\interval_breakdown_steam_run1.csv` / `interval_breakdown_steam_run2.csv` — 区間別内訳
-- `C:\Users\rhiro\macデータ保存\Riga\Limbus-Paper\v2\task_a\total_run1_shape_comparison.csv` — TOTAL形状比較用データ
-- `C:\Users\rhiro\macデータ保存\Riga\Limbus-Paper\v2\task_a\trajectory_comparison.png` — 軌跡プロット(モデル線 + STEAM/TOTAL散布点)
-- `C:\Users\rhiro\macデータ保存\Riga\Limbus-Paper\v2\task_a\task_a_summary_raw.json` — 生の数値サマリ(JSON)
+- `C:\Users\rhiro\MacData\Riga\Limbus-Paper\v2\task_a\run_task_a.py` — 再現可能スクリプト
+- `C:\Users\rhiro\MacData\Riga\Limbus-Paper\v2\task_a\trajectory_comparison.csv` — date, platform, extraction_run, official_dau, model_dau, interval_id(STEAM run1/run2・TOTAL run1、計1241行)
+- `C:\Users\rhiro\MacData\Riga\Limbus-Paper\v2\task_a\model_dau_full_trajectory.csv` — モデルDAU全期間日次軌跡(1222日、2023-02-27〜2026-07-02)
+- `C:\Users\rhiro\MacData\Riga\Limbus-Paper\v2\task_a\interval_breakdown_steam_run1.csv` / `interval_breakdown_steam_run2.csv` — 区間別内訳
+- `C:\Users\rhiro\MacData\Riga\Limbus-Paper\v2\task_a\total_run1_shape_comparison.csv` — TOTAL形状比較用データ
+- `C:\Users\rhiro\MacData\Riga\Limbus-Paper\v2\task_a\trajectory_comparison.png` — 軌跡プロット(モデル線 + STEAM/TOTAL散布点)
+- `C:\Users\rhiro\MacData\Riga\Limbus-Paper\v2\task_a\task_a_summary_raw.json` — 生の数値サマリ(JSON)

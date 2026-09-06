@@ -36,8 +36,8 @@ from datetime import date, timedelta
 import csv
 import json
 
-IMG_PATH = r"C:\Users\rhiro\macデータ保存\Riga\Limbus-Paper\docs\26-01-MAU.png"
-OUT_DIR = r"C:\Users\rhiro\macデータ保存\Riga\Limbus-Paper\v2\digitized"
+IMG_PATH = r"C:\Users\rhiro\MacData\Riga\Limbus-Paper\docs\26-01-MAU.png"
+OUT_DIR = r"C:\Users\rhiro\MacData\Riga\Limbus-Paper\v2\digitized"
 SOURCE_IMAGE = "26-01-MAU.png"
 
 LEGEND_RGB = {

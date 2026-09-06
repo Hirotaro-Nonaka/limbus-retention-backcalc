@@ -8,7 +8,7 @@ import numpy as np
 from pathlib import Path
 from scipy.optimize import nnls, minimize
 
-sys.path.insert(0, r"C:\Users\rhiro\macデータ保存\Riga\Limbus-Paper\scripts")
+sys.path.insert(0, r"C:\Users\rhiro\MacData\Riga\Limbus-Paper\scripts")
 import core
 
 OUT = Path(__file__).resolve().parent
